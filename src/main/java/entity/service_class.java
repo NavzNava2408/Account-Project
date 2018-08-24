@@ -1,6 +1,8 @@
 package entity;
 
+import java.util.Collections;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Map;
 
 import com.google.gson.Gson;
@@ -38,6 +40,11 @@ public class service_class {
 		Gson prettyGson = new GsonBuilder().setPrettyPrinting().create();
 		String prettyJson = prettyGson.toJson(accountlist);
 		return prettyJson;
+		
+	}
+
+	public long namecount(String name) {
+		return accountlist.values().stream().filter(n -> n.getfirstname().equals(name)).count();
 		
 	}
 	
